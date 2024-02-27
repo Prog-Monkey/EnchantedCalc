@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Results</h1>
+
+    <table>
+        <tr>
+            <th>Product</th>
+            <th>Profit</th>
+            <th>Material Cost</th>
+            <th>Amount Sold For</th>
+            <th>Quantity Sold</th>
+        </tr>
+        {% for i in range(num_products) %}
+        <tr>
+            <td>Product {{ i + 1 }}</td>
+            <td>{{ item_profits[i] | default('N/A') }}</td>
+            <td>{{ item_material_costs[i] | default('N/A') }}</td>
+            <td>{{ item_sold_for[i] | default('N/A') }}</td>
+            <td>{{ quantities[i] | default('N/A') }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href="/">Back to Input</a>
+</body>
+</html>
